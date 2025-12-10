@@ -1,32 +1,17 @@
-
 * {
-    
     box-sizing: border-box; 
     margin: 0;
     padding: 0;
-}
-
-:root {
-    
-    --clr-primary: #007bff;        
-    --clr-secondary: #6c757d;    
-    --clr-dark: #212529;           
-    --clr-light: #f8f9fa;     
-    --clr-white: #ffffff;
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 body {
     font-family: var(--font-body);
     color: var(--clr-dark);
     line-height: 1.6;
-    background-color: var(--clr-white); /* Fond blanc général */
+    background-color: var(--clr-white);
 }
 
-/* Styles pour les titres */
+/* Styles globaux */
 h1, h2, h3 {
     font-family: var(--font-heading);
     color: var(--clr-dark);
@@ -36,12 +21,11 @@ h1, h2, h3 {
 
 h2 {
     font-size: 2.2rem;
-    border-bottom: 2px solid var(--clr-primary); /* Sous-ligne pour la distinction */
+    border-bottom: 2px solid var(--clr-primary);
     padding-bottom: 0.2em;
     margin-bottom: 1.5rem;
 }
 
-/* Styles pour les liens */
 a {
     color: var(--clr-primary);
     text-decoration: none;
@@ -49,17 +33,16 @@ a {
 }
 
 a:hover {
-    color: #0056b3; /* Un bleu légèrement plus foncé au survol */
+    color: #0056b3;
 }
 
-/* Conteneur de contenu principal */
 .page-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-/* --- 2. En-tête (Header) --- */
 
+/* --- Header & Navigation --- */
 header {
     background-color: var(--clr-dark);
     color: var(--clr-white);
@@ -68,15 +51,13 @@ header {
     border-bottom: 5px solid var(--clr-primary);
 }
 
-header figure {
-    margin-bottom: 1.5rem;
-}
+header figure { margin-bottom: 1.5rem; }
 
 .avatar {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border-radius: 50%; /* Image ronde */
+    border-radius: 50%;
     border: 5px solid var(--clr-primary);
     box-shadow: var(--shadow-md);
     display: block;
@@ -92,11 +73,13 @@ header figure {
     letter-spacing: 2px;
 }
 
-/* Navigation principale */
+h1 { font-size: clamp(2rem, 1.75rem + 1vw, 2.5rem); }
+
 .top-nav {
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .top-nav a {
@@ -111,114 +94,9 @@ header figure {
 .top-nav a:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--clr-primary);
-}/* --- 3. Projets en vedette --- */
-
-.featured {
-    padding: 4rem 0 2rem 0;
-    background-color: var(--clr-light);
 }
 
-.cards-container {
-    display: grid;
-    /* Crée 3 colonnes de taille égale sur les grands écrans */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 30px;
-}
-
-.card {
-    background-color: var(--clr-white);
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: var(--shadow-sm); /* Une ombre légère pour la profondeur */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 5px solid var(--clr-primary); /* Une touche de couleur */
-}
-
-.card:hover {
-    transform: translateY(-5px); /* Animation au survol */
-    box-shadow: var(--shadow-md);
-}
-
-.card h3 {
-    color: var(--clr-primary);
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-}
-
-.muted {
-    color: var(--clr-secondary);
-    font-size: 0.95rem;
-}
-/* --- 4. À propos et Boutons --- */
-
-.about {
-    padding: 4rem 0;
-}
-
-/* Styles pour tous les boutons */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-top: 1.5rem;
-    margin-right: 10px;
-    transition: all 0.3s ease;
-}
-
-/* Bouton principal (couleur) */
-.btn.primary {
-    background-color: var(--clr-primary);
-    color: var(--clr-white);
-    border: 2px solid var(--clr-primary);
-}
-
-.btn.primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-    box-shadow: var(--shadow-sm);
-}
-
-/* Bouton secondaire (fantôme/transparent) */
-.btn.ghost {
-    background-color: transparent;
-    color: var(--clr-primary);
-    border: 2px solid var(--clr-primary);
-}
-
-.btn.ghost:hover {
-    background-color: var(--clr-primary);
-    color: var(--clr-white);
-}
-/* --- 5. Compétences Clés --- */
-
-.section ul {
-    list-style: none;
-    padding: 0;
-    display: flex; /* Utilisation de Flexbox pour aligner les badges */
-    flex-wrap: wrap; /* Permet aux badges de passer à la ligne */
-    gap: 10px; /* Espace entre les badges */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.skill-badge {
-    background-color: var(--clr-secondary);
-    color: var(--clr-white);
-    padding: 8px 15px;
-    border-radius: 20px; /* Bordures arrondies pour l'effet "badge" */
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-}
-
-.skill-badge:hover {
-    background-color: var(--clr-primary); /* Change de couleur au survol */
-}
-/* --- 6. Pied de Page (Footer) --- */
-
+/* --- Footer --- */
 footer {
     background-color: var(--clr-dark);
     color: var(--clr-light);
@@ -227,14 +105,8 @@ footer {
     margin-top: 4rem;
 }
 
-footer p {
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-}
-
-footer a {
-    color: var(--clr-primary);
-}
+footer p { margin-bottom: 1rem; font-size: 0.9rem; }
+footer a { color: var(--clr-primary); }
 
 .socials {
     display: flex;
@@ -248,6 +120,70 @@ footer a {
     transition: color 0.3s ease;
 }
 
-.socials a:hover {
-    color: var(--clr-primary);
+.socials a:hover { color: var(--clr-primary); }
+
+img, video { max-width: 100%; height: auto; }
+.bienvenue {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    
+    /* --- DÉBUT DE L'EFFET DÉGRADÉ ANIMÉ --- */
+    
+    /* 1. Définition des couleurs du dégradé (Bleu -> Cyan -> Violet -> Bleu) */
+    background-image: linear-gradient(
+        45deg, 
+        var(--clr-primary), 
+        #00d4ff, /* Cyan éclatant */
+        #aa00ff, /* Violet intense */
+        var(--clr-primary)
+    );
+    
+    /* 2. On agrandit le fond pour qu'il puisse bouger */
+    background-size: 300% auto;
+    
+    /* 3. La magie : on découpe le fond selon la forme du texte */
+    background-clip: text;
+    -webkit-background-clip: text; /* Pour la compatibilité (Chrome/Safari) */
+    
+    /* 4. On rend le texte transparent pour voir le fond */
+    color: transparent;
+    
+    /* 5. L'animation : nom, durée, fluidité, répétition */
+    animation: gradient-flow 6s linear infinite;
+}
+/* --- Définition de l'animation du dégradé --- */
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.project-link {
+    display: inline-block; /* <--- C'est ICI le changement important */
+    /* ... le reste de ton code (padding, background-color, etc.) */
+    width: fit-content;    /* Sécurité supplémentaire pour forcer la taille du contenu */
+    font-weight: 100;
+    text-decoration: none !important; /* C'était marqué "underline" avant, mets "none" */
+    margin-top: 5px;
+    padding: 0;    /* Donne du volume (hauteur/largeur) */
+    background-color: var(--clr-primary); /* Couleur de fond bleue */
+    color: var(--clr-white);              /* Texte en blanc */
+    border-radius: 5px;    /* Coins arrondis */
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Effet au survol du bouton */
+.project-link:hover {
+    background-color: #04386c; /* Bleu plus foncé */
+    transform: translateY(-6px); /* Léger mouvement vers le haut */
+    color: var(--clr-white); /* Force le blanc */
 }
