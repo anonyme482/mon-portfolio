@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compétences - ASSANE</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" >
     <link rel="stylesheet" href="css/experiences.css">
     <link rel="stylesheet" href="css/variables.css">
 </head>
@@ -19,6 +20,9 @@
         </figure>
 
         <h1 class="bienvenue">Bienvenue dans mon univers</h1>
+        <button class="menu-toggle" aria-label="Ouvrir le menu">
+    <i class="fas fa-bars"></i>
+      </button>
         <nav class="top-nav">
             <a href="index.html">Accueil</a>
             <a href="projets.html">Projets</a>
@@ -30,7 +34,7 @@
     <main class="page-content">
         <h1>Expériences</h1>
 
-        <section class="experience-list">
+        <section class="experience-list" aria-label="Liste de mes expériences">
             <article>
                 <h3>Création d'un site web personnel</h3>
                 <p>Détails : développement frontend complet, responsive design, optimisation performance.</p>
@@ -45,11 +49,40 @@
                 <h3>Outil Python d'analyse de textes</h3>
                 <p>Détails : scripts d'analyse, génération de statistiques et visualisations simples.</p>
             </article>
+            <article>
+                <h3>Stage Assistant Analyste SOC</h3>
+                <p>Détails : Surveillance des logs (SIEM), tri des alertes de sécurité et analyse de premier niveau sur des emails de phishing.</p>
+            </article>
+
+            <article>
+                <h3>Administration Réseau Sécurisée</h3>
+                <p>Détails : Configuration de VLANs, mise en place de règles Firewall (pfSense) et déploiement d'un serveur VPN.</p>
+            </article>
+
+            <article>
+                <h3>Participations CTF (Root-Me & TryHackMe)</h3>
+                <p>Détails : Résolution de challenges réguliers (Web, Forensic, Crypto). Classement dans le top 10% sur TryHackMe.</p>
+            </article>
+
+            <article>
+                <h3>Durcissement (Hardening) Windows & Linux</h3>
+                <p>Détails : Désactivation des services inutiles, gestion des droits utilisateurs et configuration des politiques de sécurité (GPO).</p>
+            </article>
+            
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 ASSANE |<a href="#haut">Haut de page</a></p>
+        <p>&copy; 2025 ASSANE </p>
     </footer>
+<script>
+    const bouton = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.top-nav');
 
+    if (bouton && menu) {
+        bouton.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    }
+</script>
 </body>
