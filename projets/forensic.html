@@ -1,28 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de ASSANE</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Forensic CTF - Portfolio ASSANE</title>
     <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projet.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/projets.css">
-    <link rel="stylesheet" href="../css/accueil.css">
-    <link rel="stylesheet" href="../css/forensic.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+<body>
 
-<body class="body">
     <header id="haut">
-        <figure> <img src="../image/avatar.jpeg" alt="Photo d'Assane"  class="avatar">
+        <figure> 
+            <img src="../image/avatar.jpeg" alt="Photo d'Assane" class="avatar">
         </figure>
-
         <h1 class="bienvenue">Bienvenue dans mon univers</h1>
-        <nav class="top-nav">       
+        <button class="menu-toggle" aria-label="Ouvrir le menu">
+    <i class="fas fa-bars"></i>
+      </button>
+        <nav class="top-nav" aria-label="Menu principal">
             <a href="../index.html">Accueil</a>
             <a href="../projets.html">Projets</a>
             <a href="../competences.html">Compétences</a>
             <a href="../experiences.html">Expériences</a>
         </nav>
     </header>
+
+    <main class="page-content">
+        <article class="projet-detail">
+            <header class="projet-header">
+                <h2>Challenge Forensic (CTF)</h2>
+                <p class="projet-meta">
+                    <span class="tag">Investigation Numérique</span> | 
+                    <span class="date">Août 2024</span>
+                </p>
+            </header>
+
+            <h2>Scénario</h2>
+            <p>
+                Investigation post-mortem sur une image disque d'un ordinateur supposément compromis par un employé malveillant. L'objectif était de retrouver des preuves d'exfiltration de données.
+            </p>
+
+            <h2>Tâches réalisées</h2>
+            <ul>
+                <li>Récupération de fichiers supprimés.</li>
+                <li>Analyse de l'historique de navigation et des téléchargements.</li>
+                <li>Examen des périphériques USB connectés (base de registre).</li>
+            </ul>
+
+            <h2>Outils utilisés</h2>
+            <ul>
+                <li><strong>Autopsy</strong> : Analyse complète de l'image disque.</li>
+                <li><strong>FTK Imager</strong> : Montage de l'image et exploration rapide.</li>
+                <li><strong>Wireshark</strong> : Analyse d'une capture PCAP associée.</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>
+                J'ai pu reconstruire la chronologie de l'attaque (Timeline) et prouver que l'employé avait copié des documents confidentiels sur une clé USB le 12 août à 14h30.
+            </p>
+
+            <a href="../projets.html" class="back-link">← Retour aux projets</a>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Assane | <a href="#haut">Haut de page</a></p>
+        <nav class="socials" aria-label="Réseaux sociaux">
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://x.com/" target="_blank" aria-label="X"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+        </nav>
+    </footer>
+    <script>
+    const bouton = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.top-nav');
+
+    if (bouton && menu) {
+        bouton.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    }
+</script>
+</body>
+</html>
