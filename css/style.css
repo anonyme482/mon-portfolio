@@ -187,3 +187,117 @@ img, video { max-width: 100%; height: auto; }
     transform: translateY(-6px); /* Léger mouvement vers le haut */
     color: var(--clr-white); /* Force le blanc */
 }
+/* --- CORRECTIF FORCE --- */
+/* On cible précisément le header qui est DANS l'article pour annuler le style noir */
+article header {
+    background-color: transparent !important; /* Enlève le fond noir */
+    border-bottom: none !important;           /* Enlève le gros trait bleu */
+    color: var(--clr-dark) !important;        /* Remet le texte en noir */
+    padding: 0 !important;                    /* Enlève le gros espacement */
+}
+
+/* On remet juste le petit trait gris qu'on voulait */
+.projet-header {
+    margin-bottom: 3rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd !important; /* Petit trait gris */
+    padding-bottom: 2rem !important;
+}
+/* --- LE BOUTON HAMBURGER (Caché par défaut sur PC) --- */
+.menu-toggle {
+    display: none; /* Invisible sur grand écran */
+    background: none;
+    border: none;
+    color: var(--clr-white);
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 10px auto; /* Centré */
+}
+
+/* --- MEDIA QUERY : UNIQUEMENT POUR MOBILES / TABLETTES --- */
+.menu-toggle {
+    display: none; /* Caché sur PC */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    
+    /* --- COULEUR (Important pour le voir sur fond noir) --- */
+    color: var(--clr-white); /* Blanc (ou mets var(--clr-primary) pour bleu) */
+
+    /* --- POSITIONNEMENT --- */
+    position: absolute; /* On le sort du flux normal */
+    top: 20px;          /* À 20px du haut */
+    right: 20px;        /* À 20px de la DROITE (mets 'left' si tu le veux à gauche) */
+    z-index: 1000;      /* On s'assure qu'il est au-dessus de tout */
+}#haut {
+    position: relative; /* <--- AJOUTE CETTE LIGNE OBLIGATOIRE */
+    background-color: var(--clr-dark);
+    /* ... le reste de tes styles ... */
+}
+/* --- 1. CONFIGURATION DU HEADER (Pour pouvoir placer le bouton) --- */
+#haut {
+    position: relative; /* Indispensable pour que le bouton se positionne par rapport au header */
+}
+
+/* --- 2. STYLE DU BOUTON (Caché sur PC) --- */
+.menu-toggle {
+    display: none; /* Invisible sur grand écran */
+}
+
+/* --- 3. VERSION MOBILE (Écran de téléphone) --- */
+@media (max-width: 768px) {
+    
+    /* On fait apparaître le bouton */
+    .menu-toggle {
+        display: block; /* Devient visible */
+        position: absolute; /* On le sort du flux pour le placer où on veut */
+        top: 20px;   /* Écart du haut */
+        right: 20px; /* Écart de la droite */
+        
+        background: transparent;
+        border: 2px solid var(--clr-white); /* Un bord blanc pour bien le voir */
+        color: var(--clr-white); /* Icône blanche */
+        padding: 10px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        border-radius: 5px;
+        z-index: 1000; /* Toujours au-dessus */
+    }
+
+    /* On cache le menu par défaut */
+    .top-nav {
+        display: none; /* Caché */
+        flex-direction: column; /* Vertical */
+        width: 100%;
+        background-color: var(--clr-dark);
+        padding-top: 20px;
+    }
+
+    /* Cette classe sera ajoutée par le JavaScript pour ouvrir le menu */
+    .top-nav.active {
+        display: flex; /* Le menu apparaît */
+    }
+
+    /* Style des liens sur mobile */
+    .top-nav a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        text-align: center;
+        margin: 0;
+    }
+}
+/* --- ANIMATION DES IMAGES --- */
+
+/* 1. État normal de l'image */
+.page-content img {
+    transition: transform 0.4s ease; /* L'animation dure 0.4 secondes */
+    display: block; /* S'assure que l'image réagit bien */
+}
+
+/* 2. État au survol (souris dessus) */
+.page-content img:hover {
+    transform: scale(1.05) rotate(2deg); /* Agrandit un peu et tourne */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Ajoute une ombre pour l'effet 3D */
+}
