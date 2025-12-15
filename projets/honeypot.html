@@ -1,28 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de ASSANE</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Honeypot SSH - Portfolio ASSANE</title>
     <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/projet.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/projets.css">
-    <link rel="stylesheet" href="../css/accueil.css">
-    <link rel="stylesheet" href="../css/forensic.css"
-</head> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
 
-<body class="body">
     <header id="haut">
-        <figure> <img src="../image/avatar.jpeg" alt="Photo d'Assane"  class="avatar">
+        <figure> 
+            <img src="../image/avatar.jpeg" alt="Photo d'Assane" class="avatar">
         </figure>
-
         <h1 class="bienvenue">Bienvenue dans mon univers</h1>
-        <nav class="top-nav">
+        <button class="menu-toggle" aria-label="Ouvrir le menu">
+    <i class="fas fa-bars"></i>
+     </button>
+        <nav class="top-nav" aria-label="Menu principal">
             <a href="../index.html">Accueil</a>
             <a href="../projets.html">Projets</a>
             <a href="../competences.html">Compétences</a>
             <a href="../experiences.html">Expériences</a>
         </nav>
     </header>
+
+    <main class="page-content">
+        <article class="projet-detail">
+            <header class="projet-header">
+                <h2>Déploiement d'un Honeypot</h2>
+                <p class="projet-meta">
+                    <span class="tag">Défense Active</span> | 
+                    <span class="date">Septembre 2024</span>
+                </p>
+            </header>
+
+            <h2>Description</h2>
+            <p>
+                Mise en place d'un "Pot de Miel" (Honeypot) simulant un serveur SSH vulnérable exposé sur Internet. Le but était de collecter des informations sur les techniques d'attaque par force brute (Brute Force).
+            </p>
+
+            <h2>Architecture</h2>
+            <ul>
+                <li>Déploiement sur un VPS cloud.</li>
+                <li>Utilisation de Docker pour isoler le service.</li>
+                <li>Centralisation des logs vers une stack ELK (Elasticsearch, Logstash, Kibana).</li>
+            </ul>
+
+            <h2>Outils utilisés</h2>
+            <ul>
+                <li><strong>Cowrie</strong> : Honeypot SSH/Telnet haute interaction.</li>
+                <li><strong>Docker</strong> : Conteneurisation.</li>
+                <li><strong>Elastic Stack</strong> : Visualisation des attaques (Géolocalisation des IP).</li>
+            </ul>
+
+            <h2>Résultats</h2>
+            <p>
+                En 24 heures, plus de 500 tentatives de connexion ont été enregistrées. J'ai pu dresser une liste des identifiants (user/pass) les plus testés par les bots.
+            </p>
+
+            <a href="../projets.html" class="back-link">← Retour aux projets</a>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Assane | <a href="#haut">Haut de page</a></p>
+        <nav class="socials" aria-label="Réseaux sociaux">
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://x.com/" target="_blank" aria-label="X"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+        </nav>
+    </footer>
+    <script>
+    const bouton = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.top-nav');
+
+    if (bouton && menu) {
+        bouton.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    }
+</script>
+</body>
+</html>
